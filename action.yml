@@ -20,7 +20,8 @@ runs:
 
     - name: Random Number Generator
       id: random-number-generator
-      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_ENV
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
 
     - name: Set GitHub Path
       run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
@@ -29,4 +30,6 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
     - name: Run goodbye.sh
-      run: ./goodbye.sh
+      run: goodbye.sh
+      shell: bash
+
